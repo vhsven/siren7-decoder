@@ -1,6 +1,7 @@
 FROM gcc
 RUN apt-get update && apt-get install libtool-bin
 WORKDIR /app
+# map the share folder as a volume
 RUN mkdir -p /app/share
 RUN git clone https://github.com/kakaroto/libsiren.git
 RUN cd libsiren && ./autogen.sh && make && make install
